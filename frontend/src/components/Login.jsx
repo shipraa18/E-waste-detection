@@ -33,4 +33,3 @@ const Login = ({ setAuthToken }) => {
 };
 
 export default Login;
-``
