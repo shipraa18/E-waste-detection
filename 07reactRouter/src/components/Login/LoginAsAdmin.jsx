@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 
-const Login = () => {
+const LoginAsAdmin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     
-    navigate("/recycling-centers");
+    navigate("/Admin");
   };
 
   return (
@@ -62,5 +62,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
+export default LoginAsAdmin;

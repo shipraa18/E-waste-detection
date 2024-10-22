@@ -1,52 +1,4 @@
-// import React from 'react'
 
-// export default function About() {
-//   return (
-//       <div className="py-16 bg-white">
-//           <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
-//               <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
-//                   <div className="md:5/12 lg:w-5/12">
-//                       <img
-//                           src="https://tailus.io/sources/blocks/left-image/preview/images/startup.png"
-//                           alt="image"
-//                       />
-//                   </div>
-//                   <div className="md:7/12 lg:w-6/12">
-//                       <h2 className="mt-2 text-2xl text-gray-900 font-bold md:text-4xl">
-//                       Our Mission
-//                       </h2>
-//                       <p className="mt-6 text-gray-600">
-//                       At [Project Name], our mission is to create a cleaner, more sustainable environment by effectively managing electronic waste (e-waste) through innovative technology. We believe that every community deserves a clean and safe environment, and we are committed to making that a reality.
-//                       </p>
-//                       <h2 className="mt-2 text-2xl text-gray-900 font-bold md:text-4xl">
-//                       What we do
-//                       </h2>
-//                       <p className="mt-6 text-gray-600">
-
-//                       Our project utilizes advanced machine learning algorithms and GPS technology to detect, categorize, and report instances of waste, particularly e-waste, in urban areas. By leveraging public vehicle cameras and community involvement, we aim to streamline the waste management process and alert municipal authorities in real-time, ensuring prompt action.
-//                       </p>
-//                       <h2 className=" mt-2 text-2xl text-gray-900 font-bold md:text-4xl">
-//                         How it Works
-//                       </h2>
-//                       <p className="mt-6 text-gray-600">
-//                       Waste Image Capturing: Equipped public vehicles capture images of waste during their daily routes. These images are then pre-filtered using machine learning to ensure quality and relevance.
-// Waste Detection: Our sophisticated ML model identifies and categorizes waste types, tagging them with precise GPS locations for accurate reporting.
-// Real-Time Alerts: When waste is detected, alerts are sent to municipal authorities, allowing them to respond swiftly and efficiently.
-// Community Engagement: We empower citizens to participate by allowing them to report waste via our mobile app, contributing to a collective effort in maintaining a clean environment.
-//                       </p>
-//                       <h2 className="mt-2 text-2xl text-gray-900 font-bold md:text-4xl">
-//                       Why E-Waste Matters
-//                       </h2>
-//                       <p className="mt-6 text-gray-600">
-//                       Electronic waste is one of the fastest-growing waste streams globally, and improper disposal can lead to severe environmental and health issues. Our initiative aims to tackle this challenge by promoting responsible disposal and recycling, ensuring that harmful materials do not end up in landfills.
-//                       </p>
-
-//                   </div>
-//               </div>
-//           </div>
-//       </div>
-//   );
-// }
 
 
 import React from 'react';
@@ -69,7 +21,7 @@ export default function About() {
               Our Mission
             </h2>
             <p className="mt-4 text-lg text-gray-700">
-              At [Project Name], our mission is to create a cleaner, more sustainable environment by effectively managing electronic waste (e-waste) through innovative technology. We believe that every community deserves a clean and safe environment, and we are committed to making that a reality.
+              At EWISE, our mission is to create a cleaner, more sustainable environment by effectively managing electronic waste (e-waste) through innovative technology. We believe that every community deserves a clean and safe environment, and we are committed to making that a reality.
             </p>
             <h2 className="mt-8 text-3xl font-extrabold text-gray-900 md:text-4xl">
               What We Do

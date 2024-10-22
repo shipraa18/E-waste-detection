@@ -27,9 +27,9 @@ const Section1 = () => {
                   </h3>
                 </div>
                 <div className="relative flex gap-4 pl-5 mt-4 z-10 ml-10">
-                  <Link to="/signup">
+                  <Link to="/LoginAsAdmin">
                     <button className="border border-richblack-700 bg-richblack-800 text-[12px] lg:text-[16px] px-2 py-1 lg:px-[12px] lg:py-[8px] bg-yellow-50 text-black font-semibold rounded-md hover:scale-95 transition-all duration-200">
-                      Sign Up
+                      Admin Login
                     </button>
                   </Link>
         
