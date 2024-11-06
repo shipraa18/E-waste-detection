@@ -1,19 +1,20 @@
 
-
-
-import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useContext } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FormContext } from '../FormContext/FormContext';
 
 const ImageUpload = () => {
   const [formData, setFormData] = useState({
-    date: "",
-    time: "",
-    address: "",
-    instructions: "",
-    wasteType: "",
+    date: '',
+    time: '',
+    address: '',
+    instructions: '',
+    wasteType: '',
     image: null,
   });
+
+  const { addFormSubmission } = useContext(FormContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,9 +33,9 @@ const ImageUpload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    toast.success("Request submitted successfully!", {
-      position: "top-right",
+    addFormSubmission(formData);
+    toast.success('Request submitted successfully!', {
+      position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -42,14 +43,22 @@ const ImageUpload = () => {
       draggable: true,
       progress: undefined,
     });
+    setFormData({
+      date: '',
+      time: '',
+      address: '',
+      instructions: '',
+      wasteType: '',
+      image: null,
+    });
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen p-6 bg-gray-100">
-      <div className="grid grid-cols-2 gap-10 bg-white p-10 rounded-lg shadow-lg">
-        <div className="flex flex-col justify-center ">
-          <div className="flex justify-center">
-          <img
+     <div className="grid grid-cols-2 gap-10 bg-white p-10 rounded-lg shadow-lg">
+       <div className="flex flex-col justify-center ">
+         <div className="flex justify-center">
+           <img
             src={"recycling.webp"} 
             alt="E-Waste Management"
             className="w-3/4 h-auto max-w-md rounded-lg shadow-lg pt-0 mt-[-20px] mb-10 text-10xl"
@@ -167,3 +176,4 @@ const ImageUpload = () => {
 };
 
 export default ImageUpload;
+
