@@ -1,1 +1,1 @@
-ewaste dtection app
+ewaste detection app
