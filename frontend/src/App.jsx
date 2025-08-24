@@ -2,16 +2,16 @@ import './App.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import { Outlet } from 'react-router-dom'
-import { FormProvider } from './components/FormContext/FormContext'
+import { FormProvider } from './components/FormContext/FormContext.jsx'
 
 
 function App() {
   
   return (
     <>   
-    <Header/>
     <FormProvider>
-    <Outlet/>
+      <Header/>
+      <Outlet/>
     </FormProvider>
     <Footer/>
     

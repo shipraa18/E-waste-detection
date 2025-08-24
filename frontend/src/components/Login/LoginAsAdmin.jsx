@@ -1,15 +1,40 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { useFormContext } from "../FormContext/FormContext.jsx";
 
 const LoginAsAdmin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { login } = useFormContext();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    navigate("/Admin");
+    setError("");
+
+    try {
+      const res = await fetch("http://localhost:5001/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data?.message || "Login failed");
+        return;
+      }
+      if (data?.user?.role !== "admin") {
+        setError("Not an admin account");
+        return;
+      }
+      
+      // Use the context login function instead of localStorage directly
+      login(data.token, data.user);
+      navigate("/Admin");
+    } catch (err) {
+      setError("Network error. Please try again.");
+    }
   };
 
   return (
@@ -18,6 +43,9 @@ const LoginAsAdmin = () => {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Admin Login
         </h2>
+        {error && (
+          <p className="text-red-600 text-center mb-4">{error}</p>
+        )}
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700" htmlFor="username">
@@ -53,8 +81,8 @@ const LoginAsAdmin = () => {
           </button>
         </form>
         <div className="text-center mt-4">
-          <a href="/SignUp" className="text-orange-700 hover:underline">
-            Don't have an account? Sign up
+          <a href="/AdminSignUp" className="text-orange-700 hover:underline">
+            Don't have an admin account? Create one
           </a>
         </div>
       </div>

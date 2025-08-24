@@ -184,7 +184,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/register', { // Update URL if needed
+      const response = await fetch('http://localhost:5001/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ const Signup = () => {
 
       const data = await response.json();
       if (response.ok) {
-        navigate('/login'); // Redirect to login on successful registration
+        navigate('/login');
       } else {
         setError(data.message);
       }

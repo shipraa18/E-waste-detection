@@ -16,6 +16,7 @@ import LeaderBoard from './components/LeaderBoard/LeaderBoard.jsx'
 import Tracker from './components/Tracker/Tracker.jsx'
 import LoginAsAdmin from './components/Login/LoginAsAdmin.jsx'
 import Admin from './components/Admin/Admin.jsx'
+import AdminSignUp from './components/Login/AdminSignUp.jsx'
 
 
 
@@ -28,11 +29,13 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/recycling-centers" element={<RecyclingCenters />} />
       <Route path="/ImageUpload" element={<ImageUpload/>}/>
+      <Route path="/image-upload" element={<ImageUpload/>}/>
       <Route path="/SignUp" element={<Signup/>}/>
       <Route path="/Resource" element={<Resource/>}/>
       <Route path='/LeaderBoard' element={<LeaderBoard/>}/>
       <Route path='/Tracker' element={<Tracker/>}/>
       <Route path='/LoginAsAdmin' element={<LoginAsAdmin/>}/>
+      <Route path='/AdminSignUp' element={<AdminSignUp/>}/>
       <Route path='/Admin' element={<Admin/>}/>
     </Route>
   )

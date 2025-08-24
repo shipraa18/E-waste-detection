@@ -1,15 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import { useFormContext } from "../FormContext/FormContext.jsx";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { login } = useFormContext();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    navigate("/recycling-centers");
+    setError("");
+
+    try {
+      const res = await fetch("http://localhost:5001/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data?.message || "Login failed");
+        return;
+      }
+      
+      // Use the context login function instead of localStorage directly
+      login(data.token, data.user);
+      navigate("/recycling-centers");
+    } catch (err) {
+      setError("Network error. Please try again.");
+    }
   };
 
   return (
@@ -18,6 +39,9 @@ const Login = () => {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           User Login
         </h2>
+        {error && (
+          <p className="text-red-600 text-center mb-4">{error}</p>
+        )}
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700" htmlFor="username">
